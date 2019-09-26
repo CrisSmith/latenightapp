@@ -5,10 +5,10 @@ import OrderFood from './OrderFood'
 class FoodList extends Component {
     render() {
         let {items} = this.props
-        let foodlist =  items.map((i)=>{
+        let foodlist =  items.map((i, _id)=>{
             return (
                     <ListGroup>
-                        <ListGroupItem>{i.name}<OrderFood restaurant={i} addToFavs={this.props.addToFavs}/></ListGroupItem>
+                        <ListGroupItem key={_id}>{i.name}<OrderFood restaurant={i} addToFavs={this.props.addToFavs}/></ListGroupItem>
                     </ListGroup> 
             );    
         })

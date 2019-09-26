@@ -49,7 +49,7 @@ addToFavs = (item)=> {
   }
     return(
     <div className="App">
-      <AppNavbar changeView={this.changeView}/>
+      <AppNavbar changeView={this.changeView} myFavs={this.state.myFavs}/>
       <div>{content}</div>
     </div>
     );

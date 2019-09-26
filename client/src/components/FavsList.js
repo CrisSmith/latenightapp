@@ -8,7 +8,7 @@ class FavsList extends Component {
         let favfoodlist =  myFavs.map((i, _id)=>{
             return (
                 <ListGroup>
-                    <ListGroupItem key={_id}><Button className="float-right" size="sm">x</Button>{i.name}<OrderFood restaurant={i}/></ListGroupItem>
+                    <ListGroupItem key={_id}><Button className="float-right" size="sm">x</Button>{i.name}<OrderFood restaurant={i} /></ListGroupItem>
                 </ListGroup> 
         );    
     })

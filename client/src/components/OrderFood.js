@@ -5,7 +5,9 @@ class OrderFood extends Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
-    this.state = { collapse: false };
+    this.state = { 
+      collapse: false,
+      };
   }
 
   toggle() {
@@ -27,7 +29,7 @@ class OrderFood extends Component {
                 <hr></hr>
                 <p>Pickup: {this.props.restaurant.phone}</p>
                 <hr></hr>
-                <Button size="sm" color="info" onClick={(e)=>{
+                <Button id="add-btn" size="sm" color="info" onClick={(e)=>{
                   e.preventDefault();
                   this.props.addToFavs(this.props.restaurant)}}>Add To Favs</Button>
             </CardBody>
