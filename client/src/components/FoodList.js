@@ -4,11 +4,11 @@ import OrderFood from './OrderFood'
 
 class FoodList extends Component {
     render() {
-        let {foods} = this.props
-        let foodlist =  foods.map((f)=>{
+        let {items} = this.props
+        let foodlist =  items.map((i)=>{
             return (
                     <ListGroup>
-                        <ListGroupItem>{f.name}<OrderFood restaurant={f}/></ListGroupItem>
+                        <ListGroupItem>{i.name}<OrderFood restaurant={i} addToFavs={this.props.addToFavs}/></ListGroupItem>
                     </ListGroup> 
             );    
         })

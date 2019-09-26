@@ -8,7 +8,7 @@ exports.list = function list(req,res){
             res.json(items)
         }  
     })
-}
+};
 exports.create = function create(req,res){
     let newItem = new Item(req.body);
     newItem.save()
@@ -22,6 +22,14 @@ exports.show = function show(req,res){
             res.json(item)  
           }  
     })
+};
+exports.update = function update(req,res){
+    Item.findByIdAndUpdate(req.params.id,{$set:req.body},{new: true},function(err,item){
+        if(err){
+            console.log(err)
+        }
+        res.json(item)   
+    }); 
 };
 exports.remove = function remove(req,res){
     Item.findByIdAndRemove(req.params.id, function (err, item) {

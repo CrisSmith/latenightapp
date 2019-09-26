@@ -11,7 +11,7 @@ class OrderFood extends Component {
   toggle() {
     this.setState(state => ({ collapse: !state.collapse }));
   }
-
+ 
   render() {
     return (
       <div>
@@ -27,7 +27,9 @@ class OrderFood extends Component {
                 <hr></hr>
                 <p>Pickup: {this.props.restaurant.phone}</p>
                 <hr></hr>
-                <Button size="sm" color="info">Add To Favs</Button>
+                <Button size="sm" color="info" onClick={(e)=>{
+                  e.preventDefault();
+                  this.props.addToFavs(this.props.restaurant)}}>Add To Favs</Button>
             </CardBody>
           </Card>
         </Collapse>

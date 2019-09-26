@@ -2,8 +2,12 @@ const mongoose = require('mongoose')
 
 let itemSchema = new mongoose.Schema({
     name: String,
-    price: Number,
-    inStock: Boolean
+    food_type: String,
+    img_url: String,
+    breakfast: Boolean,
+    hood: String,
+    phone: String,
+    hdelivery: String
 });
 
 

@@ -28,7 +28,7 @@ class AppNavbar extends Component {
             <div>
                 <Navbar color="dark" dark expand="sm" className="mb-5">
                     <Container>
-                        <NavbarBrand style={{color:"white"}}>All Nighter: 24/hr Delivery</NavbarBrand>
+                        <NavbarBrand style={{color:"white"}}>Austin All Nighter</NavbarBrand>
                         <NavbarToggler onClick={this.toggleNavbar} />
                         <Collapse  isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>

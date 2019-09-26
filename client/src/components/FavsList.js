@@ -4,18 +4,18 @@ import OrderFood from './OrderFood'
 
 class FavsList extends Component {
     render() {
-        let {foods} = this.props
-        let foodlist =  foods.map((f, _id)=>{
+        let {myFavs} = this.props
+        let favfoodlist =  myFavs.map((i, _id)=>{
             return (
                 <ListGroup>
-                    <ListGroupItem key={_id}><Button className="float-right" size="sm">x</Button>{f.name}<OrderFood restaurant={f}/></ListGroupItem>
+                    <ListGroupItem key={_id}><Button className="float-right" size="sm">x</Button>{i.name}<OrderFood restaurant={i}/></ListGroupItem>
                 </ListGroup> 
         );    
     })
         return (
           <Container>
                 <h2>Favorites:</h2>
-                <div>{foodlist}</div>
+                <div>{favfoodlist}</div>
             </Container>
         );
     }
