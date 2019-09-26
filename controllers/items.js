@@ -5,6 +5,7 @@ exports.list = function list(req,res){
          if(err)
              console.log(err);
         else{
+            res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
             res.json(items)
         }  
     })

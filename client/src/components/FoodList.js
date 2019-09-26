@@ -7,8 +7,8 @@ class FoodList extends Component {
         let {items} = this.props
         let foodlist =  items.map((i, _id)=>{
             return (
-                    <ListGroup>
-                        <ListGroupItem key={_id}>{i.name}<OrderFood restaurant={i} addToFavs={this.props.addToFavs}/></ListGroupItem>
+                    <ListGroup key={_id}>
+                        <ListGroupItem>{i.name}<OrderFood restaurant={i} addToFavs={this.props.addToFavs}/></ListGroupItem>
                     </ListGroup> 
             );    
         })
