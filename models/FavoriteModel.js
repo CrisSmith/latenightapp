@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-let itemSchema = new mongoose.Schema({
+let favoriteSchema = new mongoose.Schema({
     name: String,
     food_type: String,
     img_url: String,
@@ -12,7 +12,7 @@ let itemSchema = new mongoose.Schema({
 
 
 
-let Item = mongoose.model('Item', itemSchema);
+let Favorite = mongoose.model('Favorite', favoriteSchema);
 
-module.exports = Item
+module.exports = Favorite
  

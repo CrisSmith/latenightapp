@@ -5,13 +5,21 @@ import {FaTimes} from 'react-icons/fa';
 
 class FavsList extends Component {
     render() {
-        let {myFavs} = this.props
-        let favfoodlist =  myFavs.map((i, _id)=>{
+        let {favorites} = this.props
+        let favfoodlist =  favorites.map((item, _id)=>{
             return (
                     <ListGroupItem key={_id} >
-                    {i.name}
-                    <Button className="float-right" size="sm" color="dark" style={{ margin: '2px' }}><FaTimes /></Button>
-                    <OrderFood restaurant={i} />
+                    {item.name}
+                    <Button 
+                        className="float-right" 
+                        size="sm" 
+                        color="dark" 
+                        style={{ margin: '2px' }}
+                        onClick={()=>{
+                            this.props.deleteItem(item._id)
+                        }}>
+                        <FaTimes /></Button>
+                    <OrderFood restaurant={item} />
                     </ListGroupItem> 
             );    
         })

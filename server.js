@@ -3,7 +3,8 @@ dotenv.config();
 const express= require('express');
 const bodyParser= require('body-parser');
 const mongoose = require('mongoose');
-const ItemRoutes = require('./routes/Items')
+const ItemRoutes = require('./routes/Items');
+const FavoriteRoutes = require('./routes/Favorites')
 
 
 mongoose.connect(process.env.mongodburi,{useNewUrlParser: true}).then(console.log("Connected to database.."))
@@ -12,7 +13,7 @@ mongoose.set('useFindAndModify', false);
 let app = express();
 
 app.use(bodyParser.json());
-app.use(ItemRoutes)
+app.use(ItemRoutes, FavoriteRoutes )
 app.use(express.static('client/public'));
 
 

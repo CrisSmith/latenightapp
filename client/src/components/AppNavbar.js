@@ -40,7 +40,7 @@ class AppNavbar extends Component {
                                 <NavItem>
                                     <NavLink href="#" onClick={(e)=>{
                                     e.preventDefault();
-                                    this.props.changeView(2)}}><FaRegHeart />'s  ({this.props.myFavs.length})</NavLink>
+                                    this.props.changeView(2)}}><FaRegHeart />'s  ({this.props.favorites.length})</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink href="#">GitHub</NavLink>

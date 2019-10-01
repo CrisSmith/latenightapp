@@ -22,15 +22,10 @@ class ItemModal extends Component {
     }
     onSubmit=(e)=>{
         e.preventDefault();
-
-        //create new item:
         let newItem ={
             name: this.state.name
         }
-        //call action:
-        this.props.createItem(newItem);
-
-        //close modal:
+        this.props.addToItems(newItem);
         this.handelToggle();
     }
     render() {
@@ -38,13 +33,13 @@ class ItemModal extends Component {
             <div>
                 <Button color="dark" style={{marginBottom: '2rem'}} onClick={this.handelToggle}>Add this joint....</Button>
                 <Modal toggle={this.handelToggle} isOpen={this.state.modalOpen}>
-                    <ModalHeader toggle={this.handelToggle}>Adding this place before I forget....</ModalHeader>
+                    <ModalHeader toggle={this.handelToggle}>Adding this place before I forget...</ModalHeader>
                     <ModalBody>
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
                                 <Label for="item">Name:</Label>
                                 <Input type="text" name="name" id="item" onChange={this.onChange}></Input>
-                                <Button style={{marginTop:"10px"}} block>Add Restaurant</Button>
+                                <Button style={{marginTop:"10px"}} color="dark" block>Add Restaurant</Button>
                             </FormGroup>
                         </Form>
                     </ModalBody>
