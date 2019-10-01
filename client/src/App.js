@@ -7,6 +7,7 @@ import FavsList from './components/FavsList';
 import ItemModal from './components/ItemModal';
 import {Container} from 'reactstrap'
 
+
 class App extends Component {
   state ={
     items:[],
@@ -38,13 +39,15 @@ class App extends Component {
   render(){
     let content= null;
     if(this.state.whatToShow === 1){
-      content =  
-      <FoodList items={this.state.items} changeView={this.changeView} addToFavs={this.addToFavs}/>
+      content =
+      <Container>
+        <ItemModal />  
+        <FoodList items={this.state.items} changeView={this.changeView} addToFavs={this.addToFavs}/>
+      </Container>
   }
   else {
       content = 
       <Container>
-        <ItemModal />
         <FavsList items={this.state.items} myFavs={this.state.myFavs}/>
       </Container>
   }

@@ -1,21 +1,26 @@
 import React, {Component} from 'react';
-import {Container, ListGroup, ListGroupItem} from 'reactstrap';
-import OrderFood from './OrderFood'
+import {Container, ListGroup, ListGroupItem, Button} from 'reactstrap';
+import OrderFood from './OrderFood';
+import {FaRegHeart} from 'react-icons/fa';
 
 class FoodList extends Component {
     render() {
         let {items} = this.props
         let foodlist =  items.map((i, _id)=>{
             return (
-                    <ListGroup key={_id}>
-                        <ListGroupItem>{i.name}<OrderFood restaurant={i} addToFavs={this.props.addToFavs}/></ListGroupItem>
-                    </ListGroup> 
+                        <ListGroupItem key={_id}>
+                            {i.name}
+                            <Button id="add-btn" size="sm" color="dark" className = "float-right" style={{ margin: '2px' }} onClick={(e)=>{
+                                e.preventDefault();
+                                this.props.addToFavs(i)}}><FaRegHeart /></Button>
+                                <OrderFood restaurant={i}/>
+                        </ListGroupItem>
             );    
         })
         return (
             <Container>
                 <h2>Food:</h2>
-                <div>{foodlist}</div>
+                <ListGroup>{foodlist}</ListGroup>
             </Container>
         )
     }

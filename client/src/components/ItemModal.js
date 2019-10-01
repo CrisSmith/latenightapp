@@ -36,7 +36,7 @@ class ItemModal extends Component {
     render() {
         return (
             <div>
-                <Button color="dark" style={{marginBottom: '2rem'}} onClick={this.handelToggle}>Add A New Fav</Button>
+                <Button color="dark" style={{marginBottom: '2rem'}} onClick={this.handelToggle}>Add this joint....</Button>
                 <Modal toggle={this.handelToggle} isOpen={this.state.modalOpen}>
                     <ModalHeader toggle={this.handelToggle}>Adding this place before I forget....</ModalHeader>
                     <ModalBody>
