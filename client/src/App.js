@@ -5,23 +5,15 @@ import AppNavbar from './components/AppNavbar'
 import FoodList from './components/FoodList';
 import FavsList from './components/FavsList';
 import ItemModal from './components/ItemModal';
-import {Container} from 'reactstrap'
+import {Container} from 'reactstrap';
+import {Provider} from 'react-redux';
+import store from './store';
 
 
 class App extends Component {
   state ={
-    items:[],
-    favorites:[],
     whatToShow:1
   }
-  componentDidMount(){
-    fetch('http://localhost:4000/items')
-      .then((res)=>res.json())
-      .then((items)=> {
-        this.setState({items})
-      })
-      .catch(err=> console.log("Error Occured:" + (err)))
-    }
 
   changeView =(num)=>{
     this.setState({
@@ -57,20 +49,23 @@ class App extends Component {
       <Container>
         <ItemModal items={this.state.items} addToItems={this.addToItems} />
         <hr></hr>  
-        <FoodList items={this.state.items} changeView={this.changeView} addToFavs={this.addToFavs}/>
+        <FoodList changeView={this.changeView} addToFavs={this.addToFavs}/>
       </Container>
-  }
-  else {
+    }
+    else {
       content = 
       <Container>
-        <FavsList items={this.state.items} favorites={this.state.favorites} deleteItem={this.deleteItem}/>
+        <FavsList  deleteItem={this.deleteItem}/>
       </Container>
-  }
+    }
     return(
-    <div className="App">
-      <AppNavbar changeView={this.changeView} favorites={this.state.favorites}/>
-      <div>{content}</div>
-    </div>
+      <Provider store={store}>
+        <div className="App">
+          <AppNavbar changeView={this.changeView} />
+          <div>{content}</div>
+        </div>
+      </Provider>
+      
     );
   } 
 }

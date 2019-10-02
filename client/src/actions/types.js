@@ -1,0 +1,10 @@
+export const GET_ITEMS = "GET_ITEMS";
+export const ADD_ITEM = "ADD_ITEM";
+export const DELETE_ITEM = "DELETE_ITEM";
+export const ITEMS_LOADING ="ITEMS_LOADING"
+
+export const GET_FAVORITES = "GET_FAVORITES";
+export const ADD_FAVORITE = "ADD_FAVORITE";
+export const DELETE_FAVORITE = "DELETE_FAVORITE";
+export const FAVORITES_LOADING ="FAVORITES_LOADING"
+

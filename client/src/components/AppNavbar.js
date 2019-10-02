@@ -1,4 +1,3 @@
-//this component will have a collapsable 'hamburger' menu containing links
 import React, {Component} from 'react';
 import {
     Collapse,
@@ -9,7 +8,9 @@ import {
     NavItem,
     NavLink,
     Container} from 'reactstrap';
-    import {FaRegHeart} from 'react-icons/fa';
+import {FaRegHeart} from 'react-icons/fa';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 class AppNavbar extends Component {
     constructor(props){
@@ -25,6 +26,7 @@ class AppNavbar extends Component {
         })
     }
     render() {
+        let  {favorites} = this.props.favorites
         return (
             <div>
                 <Navbar color="dark" dark expand="sm" className="mb-5">
@@ -40,7 +42,7 @@ class AppNavbar extends Component {
                                 <NavItem>
                                     <NavLink href="#" onClick={(e)=>{
                                     e.preventDefault();
-                                    this.props.changeView(2)}}><FaRegHeart />'s  ({this.props.favorites.length})</NavLink>
+                                    this.props.changeView(2)}}><FaRegHeart />'s  ({favorites.length})</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink href="#">GitHub</NavLink>
@@ -56,4 +58,14 @@ class AppNavbar extends Component {
         )
     }
 }
-export default AppNavbar;
+
+AppNavbar.propTypes = {
+    favorites: PropTypes.object.isRequired
+}
+const mapStateToProps = (state) => ({
+    favorites: state.favorites
+})
+
+export default connect(mapStateToProps)(AppNavbar)
+
+//export default AppNavbar;
