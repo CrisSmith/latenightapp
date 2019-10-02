@@ -16,7 +16,7 @@ exports.create = function create(req,res){
     res.json(newFavorite)
 }
 exports.show = function show(req,res){
-    Favorite.findById(req.params.id,function(err,forvorite){
+    Favorite.findById(req.params.id,function(err,favorite){
         if(err)
             console.log(err);
           else{
@@ -33,7 +33,7 @@ exports.update = function update(req,res){
     }); 
 };
 exports.remove = function remove(req,res){
-    Favorite.findByIdAndRemove(req.params.id, function (err, item) {
+    Favorite.findByIdAndRemove(req.params.id, function (err, favorite) {
         if(err)
             console.log(err);
             else{

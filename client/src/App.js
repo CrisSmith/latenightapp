@@ -21,12 +21,6 @@ class App extends Component {
     })
     console.log(num)
   }
-  addToFavs = (item)=> {
-    this.setState(()=>{
-      this.state.favorites.push(item);
-      return {favorites:this.state.favorites}
-    })
-  }
   
   render(){
     let content= null;
@@ -35,7 +29,7 @@ class App extends Component {
       <Container>
         <ItemModal />
         <hr></hr>  
-        <FoodList changeView={this.changeView} addToFavs={this.addToFavs}/>
+        <FoodList changeView={this.changeView} />
       </Container>
     }
     else {

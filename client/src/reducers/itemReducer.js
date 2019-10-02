@@ -1,13 +1,7 @@
 import {GET_ITEMS,ADD_ITEM, ITEMS_LOADING, DELETE_ITEM} from '../actions/types'
 
 const initialState ={
-     items:[
-         {_id:3000, name:"Kerbey Lane"},
-         {_id:4000, name:"Waffle House"},
-         {_id:5000, name:"Denny's North"},
-         {_id:6000, name:"24 South"},
-         {_id:9000, name:"Magnolia"},
-     ],
+     items:[],
      loading:false
 }
 
@@ -21,6 +15,7 @@ export default function(state = initialState, action){
         case GET_ITEMS:
             return {
                 ...state,
+                items: action.value,
                 loading:false
             };
         case ADD_ITEM:
