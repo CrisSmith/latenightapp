@@ -27,27 +27,13 @@ class App extends Component {
       return {favorites:this.state.favorites}
     })
   }
-  addToItems = (item)=> {
-    this.setState(()=>{
-      this.state.items.push(item);
-      return {items:this.state.items}
-    })
-  }
-  deleteItem=(_id)=>{
-    let favorites = this.state.favorites.filter(item => {
-      return item._id !== _id
-    });
-    this.setState({
-      favorites: favorites
-    })
-    console.log(favorites)
-  }
+  
   render(){
     let content= null;
     if(this.state.whatToShow === 1){
       content =
       <Container>
-        <ItemModal items={this.state.items} addToItems={this.addToItems} />
+        <ItemModal />
         <hr></hr>  
         <FoodList changeView={this.changeView} addToFavs={this.addToFavs}/>
       </Container>
@@ -55,7 +41,7 @@ class App extends Component {
     else {
       content = 
       <Container>
-        <FavsList  deleteItem={this.deleteItem}/>
+        <FavsList />
       </Container>
     }
     return(

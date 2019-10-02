@@ -26,7 +26,7 @@ export default function(state = initialState, action){
         case ADD_FAVORITE:
             return {
                 ...state,
-                favortes: [...state.favorites, action.value]
+                favorites: [...state.favorites, action.value]
             };
         case DELETE_FAVORITE:
             return {

@@ -1,8 +1,9 @@
 //The "Form" component
 import React, { Component } from 'react';
 import {Button, Modal, ModalHeader, ModalBody, Input, Label, Form, FormGroup} from 'reactstrap';
-//import {connect} from 'react-redux';
-//import {createItem} from '../actions/index'
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {addItem} from '../actions/itemActions'
 
 
 class ItemModal extends Component {
@@ -25,7 +26,7 @@ class ItemModal extends Component {
         let newItem ={
             name: this.state.name
         }
-        this.props.addToItems(newItem);
+        this.props.addItem(newItem);
         this.handelToggle();
     }
     render() {
@@ -48,11 +49,14 @@ class ItemModal extends Component {
         )
     }
 }
-//function mapStateToProps(state) {
-  //  return {
-   //     item: state.currentItems
-  //  }
-//}
-//export default connect(mapStateToProps,{createItem})(ItemModal)
 
-export default ItemModal
+ItemModal.propTypes = {
+    addItem: PropTypes.func.isRequired, 
+    item: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+     item: state.item
+})
+
+export default connect(mapStateToProps,{addItem})(ItemModal)

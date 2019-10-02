@@ -4,18 +4,25 @@ import OrderFood from './OrderFood';
 import PropTypes from 'prop-types';
 import {FaRegHeart} from 'react-icons/fa';
 import {connect} from 'react-redux';
-import {getItems} from '../actions/itemActions';
+import {getItems, deleteItem} from '../actions/itemActions';
+import {addFavorite} from '../actions/favoritesActions';
 import {FaTimes} from 'react-icons/fa';
-
+//note deleteClick doesnt work correctly because the Itaem modal is adding items with the same _id - and thus it filters out these _id (they need to be unique or all the added items will get deleted); should be fixed w addition of routes and mongo db
 
 class FoodList extends Component {
     
     componentDidMount(){
         this.props.getItems();
     }
-
+    onDeleteClick = (_id) => {
+        this.props.deleteItem(_id)
+    }
+    onAddClick=(item)=>{
+        this.props.addFavorite(item);
+    }
     render() {
         const {items} = this.props.item;
+        
         return (
             <Container>
                 <ListGroup>
@@ -27,9 +34,8 @@ class FoodList extends Component {
                             color="dark" 
                             className = "float-right" 
                             style={{ margin: '2px' }} 
-                            onClick={(e)=>{
-                                e.preventDefault();
-                                this.props.addToFavs(i)}}>
+                            onClick={()=>{
+                                this.onAddClick(i)}}>
                                 <FaRegHeart />
                             </Button>
                             <Button 
@@ -38,7 +44,7 @@ class FoodList extends Component {
                             className="float-right" 
                             style={{ margin: '2px' }}
                             onClick={()=>{
-                                this.onDeleteClick.bind(this, i._id)}}>
+                                this.onDeleteClick(i._id)}}>
                                 <FaTimes />
                             </Button> 
                             {i.name}
@@ -53,15 +59,16 @@ class FoodList extends Component {
 }
 
 FoodList.propTypes = {
-    getItems: PropTypes.func.isRequired, 
+    getItems: PropTypes.func.isRequired,
+    deleteItem: PropTypes.func.isRequired,
+    addFavorite: PropTypes.func.isRequired,
     item: PropTypes.object.isRequired
-    //deleteItem: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
      item: state.item
 })
 
-export default connect(mapStateToProps, {getItems})(FoodList)
+export default connect(mapStateToProps, {getItems, deleteItem, addFavorite})(FoodList)
 
  

@@ -5,18 +5,10 @@ import {FaTimes} from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {getFavorites, deleteFavorite} from '../actions/favoritesActions';
-import store from '../store'
 
 
 class FavsList extends Component { 
-    /*state ={
-    favorites:[
-        {_id:67, name: "Favorite 1"},
-        {_id:777, name:"Fav 2"},
-        {_id:877, name:"Fav 3"}
-        ]
-    }
-    */
+   
     componentDidMount(){
         this.props.getFavorites();
     }
@@ -39,7 +31,7 @@ class FavsList extends Component {
                         color="dark" 
                         style={{ margin: '2px' }}
                         onClick={()=>{
-                            this.onDeleteClick.bind(this, i._id)
+                            this.onDeleteClick(i._id)
                         }}>
                         <FaTimes /></Button>
                     <OrderFood restaurant={i} />
@@ -52,13 +44,13 @@ class FavsList extends Component {
     }
 }
 FavsList.propTypes = {
-    getFavorites: PropTypes.func.isRequired, 
+    getFavorites: PropTypes.func.isRequired,
+    deleteFavorite: PropTypes.func.isRequired, 
     favorites: PropTypes.object.isRequired
-    //deleteItem: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
      favorites: state.favorites
 })
 
-export default connect(mapStateToProps, {getFavorites})(FavsList)
+export default connect(mapStateToProps, {getFavorites, deleteFavorite})(FavsList)
