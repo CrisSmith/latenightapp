@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Collapse, Button, CardBody, Card ,CardImg} from 'reactstrap';
+import { Collapse, Button, ButtonGroup, CardBody, Card ,CardImg} from 'reactstrap';
+
 
 class OrderFood extends Component {
   constructor(props) {
@@ -7,14 +8,63 @@ class OrderFood extends Component {
     this.toggle = this.toggle.bind(this);
     this.state = { 
       collapse: false,
+      linkName:"",
+      favor:"https://favordelivery.com",
+      doordash:"https://www.doordash.com/food-delivery/austin-tx-restaurants/",
+      postmates:"https://postmates.com",
+      ubereats:"https://www.ubereats.com/en-US/austin/"
       };
   }
 
   toggle() {
     this.setState(state => ({ collapse: !state.collapse }));
   }
- 
+  handelLink = (e) => {
+    if(e.target.value === "favor"){
+      return(
+        this.setState({
+          linkName: this.state.favor
+        })
+      )
+    }
+    else if (e.target.value === "postmates"){
+      return(
+        this.setState({
+          linkName: this.state.postmates
+        })
+      )
+    }
+    else if (e.target.value === "ubereats"){
+      return(
+        this.setState({
+          linkName: this.state.ubereats
+        })
+      )
+    }
+    else if (e.target.value === "doordash"){
+      return(
+        this.setState({
+          linkName: this.state.doordash
+        })
+      )
+    }
+    else {
+      this.setState({
+        linkName: this.state.doordash
+      })
+    }
+      console.log(this.state.linkName)
+  }
+  
   render() {
+    
+    let deliveryList = this.props.restaurant.delivery.map(d =>{
+      return (
+        <div>
+            <a style={{display: "table-cell"}} href={this.state.linkName} target="_blank"><Button value={d} size="sm" color="primary" style={{ margin: '3px' }} onClick={this.handelLink}>{d}</Button></a>
+        </div>
+      )
+    })
     return (
       <div>
         <Button color="dark" size="sm" style={{ marginTop: '12px' }}onClick={this.toggle}>order</Button>
@@ -22,10 +72,8 @@ class OrderFood extends Component {
           <Card style={{ marginTop: '10px' }}>
             <CardImg  top width="100%" src={this.props.restaurant.img_url} alt="Card image cap" />
             <CardBody>
-                <p>Delivery Options:</p>
-                <Button size="sm" color="primary" style={{ margin: '3px' }}>Seamless</Button>
-                <Button size="sm" color="primary" style={{ margin: '3px' }}>Favor</Button>
-                <Button size="sm" color="primary" style={{ margin: '3px' }}>DoorDash</Button>
+                <p>Delivery:</p>
+                <ButtonGroup>{deliveryList}</ButtonGroup>
                 <hr></hr>
                 <p>Pickup: {this.props.restaurant.phone}</p>
             </CardBody>

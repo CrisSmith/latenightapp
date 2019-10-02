@@ -7,7 +7,7 @@ let itemSchema = new mongoose.Schema({
     breakfast: Boolean,
     hood: String,
     phone: String,
-    delivery: String
+    delivery: Array
 });
 
 
