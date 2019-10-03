@@ -32,7 +32,7 @@ class ItemModal extends Component {
     render() {
         return (
             <div>
-                <Button color="dark" style={{marginBottom: '2rem'}} onClick={this.handelToggle}>Add this joint....</Button>
+                <Button size="lg" outline color="warning" style={{marginBottom: '2rem'}} onClick={this.handelToggle}>Add this joint....</Button>
                 <Modal toggle={this.handelToggle} isOpen={this.state.modalOpen}>
                     <ModalHeader toggle={this.handelToggle}>Adding this place before I forget...</ModalHeader>
                     <ModalBody>
@@ -40,7 +40,7 @@ class ItemModal extends Component {
                             <FormGroup>
                                 <Label for="item">Name:</Label>
                                 <Input type="text" name="name" id="item" onChange={this.onChange}></Input>
-                                <Button style={{marginTop:"10px"}} color="dark" block>Add Restaurant</Button>
+                                <Button color="warning" style={{marginTop:"10px"}} block>Add Restaurant</Button>
                             </FormGroup>
                         </Form>
                     </ModalBody>

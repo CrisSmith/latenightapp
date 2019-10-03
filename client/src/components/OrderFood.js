@@ -66,10 +66,10 @@ class OrderFood extends Component {
       )
     })
     return (
-      <div>
-        <Button color="dark" size="sm" style={{ marginTop: '12px' }}onClick={this.toggle}>order</Button>
+      <div >
+        <Button size="lg" color="dark" style={{ marginTop:'4px'}} onClick={this.toggle}>order</Button>
         <Collapse isOpen={this.state.collapse}>
-          <Card style={{ marginTop: '10px' }}>
+          <Card style={{ marginTop: '10px', background:"#b7c9e1"}}>
             <CardImg  top width="100%" src={this.props.restaurant.img_url} alt="Card image cap" />
             <CardBody>
                 <p>Delivery:</p>

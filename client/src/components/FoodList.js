@@ -7,7 +7,6 @@ import {connect} from 'react-redux';
 import {getItems, deleteItem} from '../actions/itemActions';
 import {addFavorite} from '../actions/favoritesActions';
 import {FaTimes} from 'react-icons/fa';
-//note deleteClick doesnt work correctly because the Itaem modal is adding items with the same _id - and thus it filters out these _id (they need to be unique or all the added items will get deleted); should be fixed w addition of routes and mongo db
 
 class FoodList extends Component {
     
@@ -24,30 +23,31 @@ class FoodList extends Component {
         const {items} = this.props.item;
         
         return (
-            <Container>
+            <Container style={{background: "transparent"}}>
                 <ListGroup>
                     {items.map((i)=>{
                         return (       
-                            <ListGroupItem key={i._id}>
+                            <ListGroupItem key={i._id} style={{margin:"4px", background:"#dbe4f0"}}>
                             <Button 
                             size="sm" 
-                            color="dark" 
-                            className = "float-right" 
-                            style={{ margin: '2px' }} 
+                            color="danger" 
+                            className = "float-right"
+                            class="rounded-2" 
+                            style={{ margin: '2px'}} 
                             onClick={()=>{
                                 this.onAddClick(i)}}>
                                 <FaRegHeart />
                             </Button>
                             <Button 
                             size="sm" 
-                            color="dark"
+                            color="secondary"
                             className="float-right" 
                             style={{ margin: '2px' }}
                             onClick={()=>{
                                 this.onDeleteClick(i._id)}}>
                                 <FaTimes />
                             </Button> 
-                            {i.name}
+                            <h4 style={{color:"black", fontFamily:"Squada One, cursive"}}>{i.name}</h4>
                             <OrderFood restaurant={i}/>
                         </ListGroupItem>
                         )

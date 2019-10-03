@@ -1,3 +1,7 @@
 body {
-  color:grey
+  color:grey;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: url("./images/background_image1.png")
 }

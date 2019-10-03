@@ -19,21 +19,21 @@ class FavsList extends Component {
     render() {
         const {favorites} = this.props.favorites
             return (
-                <Container>
+                <Container style={{background: "transparent"}}>
                 <ListGroup>
                     {favorites.map((i)=>{
                         return (
-                            <ListGroupItem key={i._id}>
-                        {i.name}
+                            <ListGroupItem key={i._id} style={{margin:"4px", background:"#dbe4f0"}}>
                         <Button 
                         className="float-right" 
                         size="sm" 
-                        color="dark" 
-                        style={{ margin: '2px' }}
+                        color="secondary" 
+                        style={{margin:'2px'}}
                         onClick={()=>{
                             this.onDeleteClick(i._id)
                         }}>
                         <FaTimes /></Button>
+                        <h4 style={{color:"black", fontFamily:"Squada One, cursive"}}>{i.name}</h4>
                     <OrderFood restaurant={i} />
                     </ListGroupItem> 
                 )    

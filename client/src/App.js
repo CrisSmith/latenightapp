@@ -5,10 +5,10 @@ import AppNavbar from './components/AppNavbar'
 import FoodList from './components/FoodList';
 import FavsList from './components/FavsList';
 import ItemModal from './components/ItemModal';
+import Footer from './components/Footer';
 import {Container} from 'reactstrap';
 import {Provider} from 'react-redux';
 import store from './store';
-
 
 class App extends Component {
   state ={
@@ -19,7 +19,6 @@ class App extends Component {
     this.setState({
         whatToShow: num
     })
-    console.log(num)
   }
   
   render(){
@@ -27,8 +26,7 @@ class App extends Component {
     if(this.state.whatToShow === 1){
       content =
       <Container>
-        <ItemModal />
-        <hr></hr>  
+        <ItemModal /> 
         <FoodList changeView={this.changeView} />
       </Container>
     }
@@ -39,10 +37,11 @@ class App extends Component {
       </Container>
     }
     return(
-      <Provider store={store}>
-        <div className="App">
+      <Provider store={store} >
+        <div className="App" >
           <AppNavbar changeView={this.changeView} />
           <div>{content}</div>
+          <Footer />
         </div>
       </Provider>
       
