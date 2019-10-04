@@ -73,8 +73,9 @@ class OrderFood extends Component {
             <CardImg  top width="100%" src={this.props.restaurant.img_url} alt="Card image cap" />
             <CardBody>
                 <p>Delivery:</p>
-                <ButtonGroup>{deliveryList}</ButtonGroup>
+                <ButtonGroup >{deliveryList}</ButtonGroup>
                 <hr></hr>
+                <p>Browse:<a href={this.props.restaurant.menu} target="_blank"> Menu</a></p>
                 <p>Pickup: {this.props.restaurant.phone}</p>
             </CardBody>
           </Card>

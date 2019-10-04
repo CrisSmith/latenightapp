@@ -6,6 +6,7 @@ let itemSchema = new mongoose.Schema({
     img_url: String,
     breakfast: Boolean,
     hood: String,
+    menu:String,
     phone: String,
     delivery: Array
 });

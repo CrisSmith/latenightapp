@@ -5,6 +5,7 @@ import AppNavbar from './components/AppNavbar'
 import FoodList from './components/FoodList';
 import FavsList from './components/FavsList';
 import ItemModal from './components/ItemModal';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import {Container} from 'reactstrap';
 import {Provider} from 'react-redux';
@@ -28,6 +29,12 @@ class App extends Component {
       <Container>
         <ItemModal /> 
         <FoodList changeView={this.changeView} />
+      </Container>
+    }
+    else if(this.state.whatToShow === 3){
+      content =
+      <Container>
+        <Contact />
       </Container>
     }
     else {

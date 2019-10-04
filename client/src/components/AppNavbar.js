@@ -33,7 +33,7 @@ class AppNavbar extends Component {
             <div>
                 <Navbar style={{opacity:'.7'}} color="dark" dark expand="sm" className="mb-5">
                     <Container>
-                        <NavbarBrand style={{color:"white"}}>Austin All Nighter</NavbarBrand>
+                        <NavbarBrand style={{color:"white",fontFamily:"Squada One, cursive"}}>Austin All Nighter</NavbarBrand>
                         <NavbarToggler onClick={this.toggleNavbar} />
                         <Collapse  isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
@@ -50,13 +50,14 @@ class AppNavbar extends Component {
                                     <NavLink style={{color:"white"}} href="https://github.com/CrisSmith" target="_blank">GitHub</NavLink>
                                 </NavItem>
                                 <NavItem>
+                                    <NavLink style={{color:"white"}} href="#" onClick={(e)=>{e.preventDefault();
+                                        this.props.changeView(3)}}>Contact</NavLink>
+                                </NavItem>
+                                <NavItem>
                                     <NavLink style={{color:"white"}} href="https://www.linkedin.com/in/cris-smith-696b21191" target="_blank"><FaLinkedinIn /></NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink style={{color:"white"}} href="#" target="_blank"><FaRocketchat /></NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink style={{color:"white"}} href="#" target="_blank">Contact</NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>
