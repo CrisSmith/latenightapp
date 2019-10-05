@@ -14,7 +14,7 @@ let app = express();
 
 app.use(bodyParser.json());
 app.use(ItemRoutes, FavoriteRoutes )
-app.use(express.static('client/build'));
+app.use(express.static('client/public'));
 
 
 
