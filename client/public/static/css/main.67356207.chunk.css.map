@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,KACE,UAAU,CACV,uBAA2B,CAC3B,qBAAsB,CACtB,2BAA4B,CAC5B,4DACF","file":"main.67356207.chunk.css","sourcesContent":["body {\n  color:grey;\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background: url(\"./images/background_image1.png\")\n}"]}

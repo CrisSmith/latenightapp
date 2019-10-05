@@ -1,4 +1,4 @@
-const path = require ('path')
+//const path = require ('path')
 const dotenv = require('dotenv');
 dotenv.config();
 const express= require('express');
@@ -16,9 +16,9 @@ let app = express();
 app.use(bodyParser.json());
 app.use(ItemRoutes, FavoriteRoutes )
 app.use(express.static('client/public'));
-app.get('*', function(req,res){
-    res.sendFile(path.join(__dirname + '/public/index.html'))
-})
+//app.get('*', function(req,res){
+ //   res.sendFile(path.join(__dirname + './client/public/index.html'))
+//})
 
 
 const PORT = process.env.PORT || 4000
