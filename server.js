@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(ItemRoutes, FavoriteRoutes )
 app.use(express.static('client/public'));
 app.get('*', function(req,res){
-    res.sendFile(path.join(_dirname + '/public/index.html'))
+    res.sendFile(path.join(__dirname + '/public/index.html'))
 })
 
 
